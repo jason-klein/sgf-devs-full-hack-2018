@@ -1,5 +1,7 @@
 # sgf-devs-full-hack-2018
-Springfield Web Developers "Full Hack" Competition 2018
+I will use this repo to publish my project/entry for the Springfield Web Developers "Full Hack" Competition 2018
+
+## Summary
 
 [Springfield Web Developers](http://sgfwebdevs.com/) hosted "Full Hack" on On Wednesday December 5th 2018. Full Hack is a live developer face off event at [The eFactory](https://efactory.missouristate.edu/) in Springfield Missouri.
 
