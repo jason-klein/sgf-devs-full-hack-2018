@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!--https://fonts.google.com/-->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
 
@@ -15,54 +15,78 @@
 <body class="container">
 
 
+<!--grid website logo-->
 <div class="home home__link home__link--logo">
-    <img src="img/logo.svg" alt="logo">
-</div>
-<div class="home home__link home__link--calendar">
-    <img src="img/icon-calendar.svg" alt="calendar logo">
-</div>
-<div class="home home__link home__link--download">
-    <img src="img/icon-download.svg" alt="download logo">
-</div>
-<div class="home home__link home__link--sponsor">
-    <img src="img/icon-sponsor.svg" alt="sponsor logo">
+    <img class="home home__link--cover-image" src="img/logo.svg" alt="logo">
 </div>
 
-<div class="home home__link home__link--twitch">
-    <img src="img/social-twitch.svg" alt="twitch logo">
-</div>
-<div class="home home__link home__link--twitter">
-    <img src="img/social-twitter.svg" alt="twitter logo">
-</div>
-<div class="home home__link home__link--youtube">
-    <img src="img/social-youtube.svg" alt="youtube logo">
-</div>
-<div class="home home__link home__link--github">
-    <img src="img/social-github.svg" alt="github logo">
-</div>
-<div class="home home__link home__link--facebook">
-    <img src="img/social-facebook.svg" alt="facebook logo">
-</div>
-<div class="home home__link home__link--slack">
-    <img src="img/social-slack.svg" alt="slack logo">
-</div>
-<div class="home home__link home__link--meetup">
-    <img src="img/social-meetup.svg" alt="meetup logo">
-</div>
+<!--grid links-->
+<a class="home home__link home__link--calendar" href="#">
+    <div class="home home__link--cover"><img class="home home__link--cover-image" src="img/icon-calendar.svg" alt="calendar icon"></div>
+    <div class="home home__link--back"><span class="home__link--back-text">Events</span></div>
+</a>
+<a class="home home__link home__link--download" href="#">
+    <div class="home home__link--cover"><img class="home home__link--cover-image" src="img/icon-download.svg" alt="download icon"></div>
+    <div class="home home__link--back"><span class="home__link--back-text">Downloads</span></div>
+</a>
+<a class="home home__link home__link--sponsor" href="#">
+    <div class="home home__link--cover"><img class="home home__link--cover-image" src="img/icon-sponsor.svg" alt="sponsor icon"></div>
+    <div class="home home__link--back"><span class="home__link--back-text">Sponsors</span></div>
+</a>
+<a class="home home__link home__link--twitch" href="https://www.twitch.tv/sgfwebdevs">
+    <div class="home home__link--cover"><img class="home home__link--cover-image" src="img/social-twitch.svg" alt="twitch icon"></div>
+    <div class="home home__link--back"><span class="home__link--back-text">Twitch</span></div>
+</a>
+<a class="home home__link home__link--twitter" href="https://twitter.com/sgfwebdevs#">
+    <div class="home home__link--cover"><img class="home home__link--cover-image" src="img/social-twitter.svg" alt="twitter icon"></div>
+    <div class="home home__link--back"><span class="home__link--back-text">Twitter</span></div>
+</a>
+<a class="home home__link home__link--youtube" href="https://www.youtube.com/c/sgfwebdevs/videos">
+    <div class="home home__link--cover"><img class="home home__link--cover-image" src="img/social-youtube.svg" alt="youtube icon"></div>
+    <div class="home home__link--back"><span class="home__link--back-text">YouTube</span></div>
+</a>
+<a class="home home__link home__link--github" href="https://github.com/mykebates/SGF-Web-Devs">
+    <div class="home home__link--cover"><img class="home home__link--cover-image" src="img/social-github.svg" alt="github icon"></div>
+    <div class="home home__link--back"><span class="home__link--back-text">GitHub</span></div>
+</a>
+<a class="home home__link home__link--facebook" href="https://www.facebook.com/groups/837398662948655/">
+    <div class="home home__link--cover"><img class="home home__link--cover-image" src="img/social-facebook.svg" alt="facebook icon"></div>
+    <div class="home home__link--back"><span class="home__link--back-text">Facebook</span></div>
+</a>
+<a class="home home__link home__link--slack" href="http://sgfwebdevs.com/slack">
+    <div class="home home__link--cover"><img class="home home__link--cover-image" src="img/social-slack.svg" alt="slack icon"></div>
+    <div class="home home__link--back"><span class="home__link--back-text">Slack</span></div>
+</a>
+<a class="home home__link home__link--meetup" href="http://www.meetup.com/SGF-Web-Devs/">
+    <div class="home home__link--cover"><img class="home home__link--cover-image" src="img/social-meetup.svg" alt="meetup icon"></div>
+    <div class="home home__link--back"><span class="home__link--back-text">Meetup</span></div>
+</a>
 
+<!--grid photos-->
 <div class="home home__photo home__photo--1">
-    <img src="img/letter-w.svg" alt="letter w">
+    <img class="home__photo--background" src="img/home-1.jpg" alt="Home Photo 1">
+    <img class="home__photo--letter home__photo--letter-w" src="img/letter-w.svg" alt="letter w">
 </div>
-<div class="home home__photo home__photo--2">&nbsp;</div>
-<div class="home home__photo home__photo--3">&nbsp;</div>
-<div class="home home__photo home__photo--4">&nbsp;</div>
+<div class="home home__photo home__photo--2">
+    <img class="home__photo--background" src="img/home-2.jpg" alt="Home Photo 2">
+</div>
+<div class="home home__photo home__photo--3">
+    <img class="home__photo--background" src="img/home-3.jpg" alt="Home Photo 3">
+</div>
+<div class="home home__photo home__photo--4">
+    <img class="home__photo--background" src="img/home-4.jpg" alt="Home Photo 4">
+</div>
 <div class="home home__photo home__photo--5">
-    <img src="img/letter-v.svg" alt="letter v">
+    <img class="home__photo--background" src="img/home-5.jpg" alt="Home Photo 5">
+    <img class="home__photo--letter home__photo--letter-v" src="img/letter-v.svg" alt="letter v">
 </div>
 
+<!--grid gradients-->
 <div class="gradient gradient--1">&nbsp;</div>
 <div class="gradient gradient--2">&nbsp;</div>
 
+
+<!--event modal-->
 <div class="event">
     <div class="event__logo"></div>
     <div class="event__close">Close X</div>

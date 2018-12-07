@@ -1,174 +1,316 @@
 .container {
 
-  height: 100vh;
-
   background-color: $color-secondary;
   color: #fff;
 
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  grid-template-areas:
-    "logo logo p1 p1 p1 p1 calendar calendar . . twitch twitter"
-    "logo logo p1 p1 p1 p1 calendar calendar . . youtube github"
-    ". . p1 p1 p1 p1 . . p2 p2 facebook slack"
-    ". . p1 p1 p1 p1 . . p2 p2 . meetup"
-    "download download . . p3 p3 g1 g1 p4 p4 p4 p4"
-    "download download . . p3 p3 g1 g1 p4 p4 p4 p4"
-    "p5 p5 g2 g2 sponsor sponsor g1 g1 p4 p4 p4 p4"
-    "p5 p5 g2 g2 sponsor sponsor g1 g1 p4 p4 p4 p4";
 
+  //@media screen and (-webkit-min-device-pixel-ratio:0) {
+    /* CSS Statements that only apply on webkit-based browsers (Chrome, Safari, etc.) */
+    .home_photo,
+    .home_link,
+    .home__link--cover,
+    .gradient {
+      /*  Fix for webkit browser "css grid rounding errors" that cause 1px empty lines between grid items
+          This can result in a 1px overflow, which is less obvious than long 1px gaps.
+          Can we place an "overflow: hidden" somewhere to trim the overflow?  */
+      float: left;
+      margin-right: -1px;
+      margin-bottom: -1px;
+    }
+    .home__link--back {
+      float: bottom;
+    }
+  //}
+
+  // 12 columns
+  //height: 100vh; // always stretch to full viewport height (grid items are usually rectangle)
+  max-height: 100vh; // stretch up to full viewport height (grid items are usually square)
+  // BUG: Safari is treating "max-height:100vh" as "height:100vh" and stretching to full viewport height
+
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, minmax(8.333333vw, 1fr)); // 1:1 ratio (1/12 = 8.3333333333333%)
+  grid-template-areas:
+    "logo logo photo1 photo1 photo1 photo1 calendar calendar . . twitch twitter"
+    "logo logo photo1 photo1 photo1 photo1 calendar calendar . . youtube github"
+    ". . photo1 photo1 photo1 photo1 . . photo2 photo2 facebook slack"
+    ". . photo1 photo1 photo1 photo1 . . photo2 photo2 . meetup"
+    "download download . . photo3 photo3 gradient1 gradient1 photo4 photo4 photo4 photo4"
+    "download download . . photo3 photo3 gradient1 gradient1 photo4 photo4 photo4 photo4"
+    "photo5 photo5 gradient2 gradient2 sponsor sponsor gradient1 gradient1 photo4 photo4 photo4 photo4"
+    "photo5 photo5 gradient2 gradient2 sponsor sponsor gradient1 gradient1 photo4 photo4 photo4 photo4";
+
+  // 8 columns
   @media only screen and (max-width: $bp-large) {
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(16, 1fr);
+    min-height: 100vh;
+    height: auto;
+
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(12, minmax(12.5vw, 1fr)); // 1:1 ratio (1/8 = 12.5%)
     grid-template-areas:
-            "logo logo p1 p1 p1 p1"
-            "logo logo p1 p1 p1 p1"
-            ". . p1 p1 p1 p1"
-            ". . p1 p1 p1 p1"
-            "download download . . p3 p3"
-            "download download . . p3 p3"
-            "p5 p5 g2 g2 sponsor sponsor"
-            "p5 p5 g2 g2 sponsor sponsor"
+            "logo logo photo1 photo1 photo1 photo1 calendar calendar"
+            "logo logo photo1 photo1 photo1 photo1 calendar calendar"
+            ". . photo1 photo1 photo1 photo1 . ."
+            ". . photo1 photo1 photo1 photo1 . ."
+            "download download . . photo3 photo3 gradient1 gradient1"
+            "download download . . photo3 photo3 gradient1 gradient1"
+            "photo5 photo5 gradient2 gradient2 sponsor sponsor gradient1 gradient1"
+            "photo5 photo5 gradient2 gradient2 sponsor sponsor gradient1 gradient1"
+
+            ". . twitch twitter photo4 photo4 photo4 photo4"
+            ". . youtube github photo4 photo4 photo4 photo4"
+            "photo2 photo2 facebook slack photo4 photo4 photo4 photo4"
+            "photo2 photo2 . meetup photo4 photo4 photo4 photo4";
+  }
+
+  // 6 columns
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(16, minmax(16.666666vw, 1fr)); // 1:1 ratio (1/6 = 16.6666666666667%)
+    grid-template-areas:
+            "logo logo photo1 photo1 photo1 photo1"
+            "logo logo photo1 photo1 photo1 photo1"
+            ". . photo1 photo1 photo1 photo1"
+            ". . photo1 photo1 photo1 photo1"
+            "download download . . photo3 photo3"
+            "download download . . photo3 photo3"
+            "photo5 photo5 gradient2 gradient2 sponsor sponsor"
+            "photo5 photo5 gradient2 gradient2 sponsor sponsor"
 
             "calendar calendar . . twitch twitter"
             "calendar calendar . . youtube github"
-            "p2 p2 p2 p2 facebook slack"
-            "p2 p2 p2 p2 . meetup"
-            "g1 g1 p4 p4 p4 p4"
-            "g1 g1 p4 p4 p4 p4"
-            "g1 g1 p4 p4 p4 p4"
-            "g1 g1 p4 p4 p4 p4";
+            ". . photo2 photo2 facebook slack"
+            ". . photo2 photo2 . meetup"
+            "gradient1 gradient1 photo4 photo4 photo4 photo4"
+            "gradient1 gradient1 photo4 photo4 photo4 photo4"
+            "gradient1 gradient1 photo4 photo4 photo4 photo4"
+            "gradient1 gradient1 photo4 photo4 photo4 photo4";
   }
 
-
+  // 4 columns
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(24, minmax(25vw, 1fr)); // 1:1 ratio (1/4 = 25%)
+    grid-template-areas:
+            "logo logo . ."
+            "logo logo . ."
+            "photo1 photo1 photo1 photo1"
+            "photo1 photo1 photo1 photo1"
+            "photo1 photo1 photo1 photo1"
+            "photo1 photo1 photo1 photo1"
+            "calendar calendar . . "
+            "calendar calendar . . "
+            ". . download download"
+            ". . download download"
+            "gradient2 gradient2 photo5 photo5"
+            "gradient2 gradient2 photo5 photo5"
+            "photo3 photo3 gradient1 gradient1"
+            "photo3 photo3 gradient1 gradient1"
+            "sponsor sponsor gradient1 gradient1"
+            "sponsor sponsor gradient1 gradient1"
+            "photo4 photo4 photo4 photo4"
+            "photo4 photo4 photo4 photo4"
+            "photo4 photo4 photo4 photo4"
+            "photo4 photo4 photo4 photo4"
+            ". . twitch twitter"
+            ". . youtube github"
+            "photo2 photo2 facebook slack"
+            "photo2 photo2 . meetup";
+  }
 
   .home {
 
-    //temp
-    font-size: 3rem;
-
     &__photo {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
 
-      //background-image:
-      //        linear-gradient(rgba($color-primary, .8),
-      //                rgba($color-primary, .8)),
-      //        url(../img/rawpixel-678089-unsplash.jpg);
+      // do not overflow when scaling photo during :hover
+      overflow: hidden;
+      position: relative;
 
-      background-size: cover;
-      filter: brightness(50%);
+      &--background {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 1;
+        filter: grayscale(100%) brightness(50%);
+        //filter: rgba($color-primary-dark,.5);
+        //background: rgba($color-primary-dark,.5);
+        //border: 10px solid orangered;
+        //mask-image: rgba($color-primary-dark,.5);
+        width: 100%;
+        height: 100%;
+        z-index:3;
+
+        transition: all .2s;
+      }
+      //&--background:after {
+      //  position: absolute;
+      //  content:"";
+      //  height:100%;
+      //  width:100%;
+      //  top:0;
+      //  left:0;
+      //  background: linear-gradient(to bottom, rgba(255,0,0,0) 0%,rgba(255,0,0,0.65) 100%);
+      //  z-index: 40;
+      //}
+      &--background:hover {
+        //filter: grayscale(0%) brightness(50%);
+        filter: grayscale(0%);
+        transform: scale(1.1);
+      }
+
+      &--letter {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 1;
+        z-index: 5;
+        height: 60%;
+        //height: 5vw;
+      }
+
+      &--letter-v {
+        align-self: center;
+        height: 40%;
+        //height: 4vw;
+      }
 
       &--1 {
-        background-image:
-                linear-gradient(-225deg, rgba(#F87678, 0), rgba(#2B439F, 1)),
-                url(../img/home-1.jpg);
-        grid-area: p1;
-
-        // align letter
-        img {
-          height: 60%;
-          //background-image: linear-gradient(-225deg, #F87678 0%, #2B439F 100%);
-        }
+        grid-area: photo1;
       }
       &--2 {
-        background-image:
-                linear-gradient(-225deg, rgba(#F87678, 0), rgba(#2B439F, 1)),
-                url(../img/home-2.jpg);
-        grid-area: p2;
+        grid-area: photo2;
       }
       &--3 {
-        background-image:
-                linear-gradient(-225deg, rgba(#F87678, 0), rgba(#2B439F, 1)),
-                url(../img/home-3.jpg);
-        grid-area: p3;
+        grid-area: photo3;
       }
       &--4 {
-        background-image:
-                linear-gradient(-225deg, rgba(#F87678, 0), rgba(#2B439F, 1)),
-                url(../img/home-4.jpg);
-        grid-area: p4;
+        grid-area: photo4;
       }
       &--5 {
-        background-image:
-                linear-gradient(-225deg, rgba(#F87678, 0), rgba(#2B439F, 1)),
-                url(../img/home-5.jpg);
-        grid-area: p5;
-
-        // align letter
-        img {
-          height: 50%;
-        }
-
+        grid-area: photo5;
       }
-    }
-
-    &__icon {
-      //fill: #fff;
     }
 
     &__link {
+      $link: &;
+
+      // format icon
       fill: #fff;
-      background-image: linear-gradient(to bottom right, #F87678 0%, #2B439F 100%);
 
-      // align icons
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      // format text link
+      color: $color-primary;
+      text-transform: uppercase;
+      text-decoration: none;
 
-      img {
-        //width: 40%;
-        //height: 40%;
-        width: 3rem; // 30px
-        height: 3rem; // 30px
+      display: grid;
+
+      transition: all .2s;
+      &:hover,
+      &:active {
+        // TODO perform transition here to avoid flutter between transitions when hovering over back text
+
+        //#{$link}--cover {
+        //  transform-origin: 50% 0;
+        //  transform: perspective(1000px) rotateX(40deg);
+        //  z-index: 5;
+        //  background-image: linear-gradient(to bottom right, $color-primary-light 0%, $color-primary-dark 100%);
+        //}
+      }
+
+      //&:hover &--cover {
+      //  transform-origin: 50% 0;
+      //  transform: perspective(1000px) rotateX(40deg);
+      //  z-index: 5;
+      //  background-image: linear-gradient(to bottom right, $color-primary-light 0%, $color-primary-dark 100%);
+      //}
+
+      &--cover {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 1;
+
+        transition: all .4s;
+        background-image: linear-gradient(to bottom right, $color-primary-light 0%, $color-primary-dark 100%);
+
+        // center image inside cover square
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &--cover:hover,
+      &--cover:active {
+        transform-origin: 50% 0;
+        transform: perspective(1000px) rotateX(40deg);
+        z-index: 5;
+        background-image: linear-gradient(to bottom right, $color-primary-light 0%, $color-primary-dark 100%);
+        box-shadow: var(--shadow-dark);
+      }
+
+      &--cover-image {
+        width: 4rem;
+        height: 4rem;
+      }
+
+      &--back {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 1;
+
+        background: #000;
+        z-index: -1;
+
+        // position text at bottom of back square
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        align-items: flex-end;
+      }
+
+      &--back-text {
+        font-family: $font-primary;
+        font-size: 1.2rem;
+        padding-bottom: 0rem;
       }
 
       &--logo {
         grid-area: logo;
-        background-image: linear-gradient(to bottom left, #F87678 0%, #2B439F 100%);
+        background-image: linear-gradient(to bottom left, $color-primary-light 0%, $color-primary-dark 100%);
+
+        // center image inside cover square
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         img {
           width: 80%;
           height: 80%;
         }
       }
+      &--logo:hover,
+      &--logo:active {
+        // only apply hover transformation to links. logo is not a link.
+        border: none;
+        transform: none;
+        //background-image: linear-gradient(to bottom left, $color-primary-light 0%, $color-primary-dark 100%);
+      }
+
       &--calendar {
-        background: #000000;
         grid-area: calendar;
-        background-image: linear-gradient(to top right, #F87678 0%, #2B439F 100%);
-        transition: all .2s;
-        transform-origin: 0 0;
       }
       &--calendar:hover {
-        background-image: linear-gradient(-37deg, #F87678 0%, #2B439F 100%);
-        border: 1px solid #FFFFFF;
-        // TODO
-        transform: perspective(1000px) rotateX(10deg);
+        //background-image: linear-gradient(-37deg, $color-primary-light 0%, $color-primary-dark 100%);
       }
       &--download {
-        background: #000000;
         grid-area: download;
-        background-image: linear-gradient(to bottom right, #F87678 0%, #2B439F 100%);
-        transition: all .2s;
-        transform-origin: 0 0;
+        //background-image: linear-gradient(to bottom right, $color-primary-light 0%, $color-primary-dark 100%);
       }
       &--download:hover {
-        background-image: linear-gradient(-37deg, #F87678 0%, #2B439F 100%);
-        border: 1px solid #FFFFFF;
-        // TODO
-        transform: perspective(1000px) rotateX(10deg);
+        //background-image: linear-gradient(-37deg, $color-primary-light 0%, $color-primary-dark 100%);
       }
       &--sponsor {
-        background: #000000;
         grid-area: sponsor;
-        background-image: linear-gradient(to top right, #F87678 0%, #2B439F 100%);
-        transition: all .2s;
-        transform-origin: 0 0;
+        //background-image: linear-gradient(to top right, $color-primary-light 0%, $color-primary-dark 100%);
       }
       &--sponsor:hover {
-        background-image: linear-gradient(-37deg, #F87678 0%, #2B439F 100%);
-        border: 1px solid #FFFFFF;
-        // TODO
-        transform: perspective(1000px) rotateX(10deg);
+        //background-image: linear-gradient(-37deg, $color-primary-light 0%, $color-primary-dark 100%);
       }
 
       &--twitch {
@@ -196,21 +338,19 @@
 
   }
 
-  .event {
-    display: none;
-  }
-
   .gradient {
-
     &--1 {
-      grid-area: g1;
-      background-image: linear-gradient(to bottom right, #F87678 0%, #2B439F 100%);
+      grid-area: gradient1;
+      background-image: linear-gradient(to bottom right, $color-primary-light 0%, $color-primary-dark 100%);
     }
     &--2 {
-      grid-area: g2;
-      background-image: linear-gradient(to bottom right, #F87678 0%, #2B439F 100%);
+      grid-area: gradient2;
+      background-image: linear-gradient(to bottom right, $color-primary-light 0%, $color-primary-dark 100%);
     }
+  }
 
+  .event {
+    display: none;
   }
 
 }
